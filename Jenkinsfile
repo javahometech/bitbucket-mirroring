@@ -2,6 +2,8 @@ pipeline{
     agent any
     environment{
         BITBUCKET_CREDS = credentials('javahometech')
+        BITBUCKET_USER = "a.srinivasarao2468@gmail.com"
+        BITBUCKET_PWD = "9959144875"
     }
     stages{
         stage('Git Mirror'){
@@ -22,7 +24,7 @@ pipeline{
             steps{
                 sh """
                     curl -v https://api.bitbucket.org/2.0/repositories/srinivasarao2468/sync-test/pullrequests \
-                      -u a.srinivasarao2468@gmail.com:9959144875 \
+                      -u $BITBUCKET_USER:$BITBUCKET_PWD \
                       --request POST \
                       --header 'Content-Type: application/json' \
                       --data '{
