@@ -12,7 +12,7 @@ pipeline{
             }
             steps{
                 dir('source-repo'){
-                    git url: 'https://github.com/javahometech/sharedlibs'
+                    git url: 'https://github.com/javahometech/sharedlibs', branch: 'main'
                 }
             }
         }
