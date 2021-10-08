@@ -5,6 +5,9 @@ pipeline{
     }
     stages{
         stage('Git Mirror'){
+            when {
+                expression { "Y" == 'x' }
+            }
             steps{
                 checkout scm
                 withCredentials([usernamePassword(credentialsId: 'javahometech', passwordVariable: 'password', usernameVariable: 'userId')]) {
