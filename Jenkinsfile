@@ -8,7 +8,7 @@ pipeline{
     stages{
         stage('Git Mirror'){
             when {
-                expression { "Y" == 'x' }
+                expression { 'x' == 'x' }
             }
             steps{
                 dir('source-repo'){
@@ -19,7 +19,7 @@ pipeline{
         stage("Create Pull Request"){
             steps{
                 sh """
-                    curl -v https://api.bitbucket.org/2.0/repositories/srinivasarao2468/sync-test/pullrequests \
+                    curl https://api.bitbucket.org/2.0/repositories/srinivasarao2468/sync-test/pullrequests \
                       -u $BITBUCKET_USER:$BITBUCKET_PWD \
                       --request POST \
                       --header 'Content-Type: application/json' \
