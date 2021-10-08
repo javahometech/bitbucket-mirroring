@@ -18,5 +18,23 @@ pipeline{
                 }
             }
         }
+        stage("Create Pull Request"){
+            steps{
+                sh """
+                    curl -v https://api.bitbucket.org/2.0/repositories/srinivasarao2468/sync-test/pullrequests \
+                      -u a.srinivasarao2468@gmail.com:9959144875 \
+                      --request POST \
+                      --header 'Content-Type: application/json' \
+                      --data '{
+                        "title": "Hari Kammana Pull Request From Jenkins",
+                        "source": {
+                          "branch": {
+                            "name": "feature/syncdemo"
+                          }
+                        }
+                      }'
+                """
+            }
+        }
     }
 }
